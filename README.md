@@ -45,4 +45,5 @@ The real token is only known by the real CompILe bot. That way we only have one 
 
 9. Congrats your bot is now running. You will have to reopen the command window to run any new changes you made to the bot. 
 
-10. If you make any new changes make sure to create a new branch in the repo and push it. 
+10. If you make any new changes make sure to create a new branch in the repo and push it. You will want to edit the bot.js to
+add new code in. https://discordapp.com/developers/docs/intro will give info about the discord bot API.  
