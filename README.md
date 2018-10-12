@@ -1,2 +1,2 @@
 # CompILe-Bot
-A discord bot for the club
+A discord bot for CompILe
