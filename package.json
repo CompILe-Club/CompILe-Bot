@@ -1,0 +1,23 @@
+{
+  "name": "compile_bot",
+  "version": "1.0.0",
+  "description": "a discord bot for CompILe",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CompILe-Club/CompILe_Bot.git"
+  },
+  "author": "CompILe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CompILe-Club/CompILe_Bot/issues"
+  },
+  "homepage": "https://github.com/CompILe-Club/CompILe_Bot#readme",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "winston": "^3.1.0"
+  }
+}
