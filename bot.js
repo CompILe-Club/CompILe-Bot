@@ -1,6 +1,7 @@
-var Discord = require('discord.io');
-var logger = require('winston');
-var auth = require('./auth.json');
+const Discord = require('discord.io');
+const logger = require('winston');
+const auth = require('./auth.json');
+
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
