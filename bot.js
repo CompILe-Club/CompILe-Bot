@@ -87,32 +87,40 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				+ "\ncommands\tgives a list of commands"
 			})
 			break;
-			case 'setmeeting':
-			var temp = args[1].toLowerCase().split('-');
-			var date = temp[0];
-			var time = temp[1].split("");
-			var month = date[0];
-			var day = date[1];
-			var year = date[2];
-			var hour = time[0];
-			var min = time[1];
-			var sec = time[2];
-			meetingDate.setUTCFullYear(month, day, year);
-			meetingDate.setUTCHours(hour);
-			meetingDate.setUTCMinutes(min);
-			meetingDate.setUTCSeconds(sec);
-			bot.sendMessage({
-				to: channelID,
-				mesage: "Meeting Date set to " + meetingDate.getUTCMonth() + 1 + '/' + meetingDate.getUTCDate() + '/' + meetingDate.getUTCFullYear() + " " 
-				+ (meetingDate.getUTCHours() - 5) % 24 + ":" + meetingDate.getUTCMinutes() + ":" + meetingDate.getUTCSeconds()
-			});
+			case 'setmeeting': {
+				try {
+					var temp = args[1].split('-');
+					var date = temp[0].split("/");
+					var time = temp[1].split(":");
+					var month = date[0];
+					var day = date[1];
+					var year = date[2];
+					var hour = time[0];
+					var min = time[1];
+					var sec = time[2];
+					meetingDate.setUTCFullYear(month, day, year);
+					meetingDate.setUTCHours(hour);
+					meetingDate.setUTCMinutes(min);
+					meetingDate.setUTCSeconds(sec);
+					bot.sendMessage({
+						to: channelID,
+						message: "Meeting Date set to " + meetingDate.getUTCMonth() + 1 + '/' + meetingDate.getUTCDate() + '/' + meetingDate.getUTCFullYear() + " " 
+						+ (meetingDate.getUTCHours() - 5) % 24 + ":" + meetingDate.getUTCMinutes() + ":" + meetingDate.getUTCSeconds()
+					});
+				}
+				catch (e) {
+					console.log(e);
+				}
+			}
 			break;
 			case 'meeting':
-			bot.sendMessage({
-				to: channelID,
-				mesage: "Meeting Date set to " + meetingDate.getUTCMonth() + 1 + '/' + meetingDate.getUTCDate() + '/' + meetingDate.getUTCFullYear() + " " 
-				+ (meetingDate.getUTCHours() - 5) % 24 + ":" + meetingDate.getUTCMinutes() + ":" + meetingDate.getUTCSeconds()
-			});
+			{
+				bot.sendMessage({
+					to: channelID,
+					message: "Meeting Date set to " + meetingDate.getUTCMonth() + 1 + '/' + meetingDate.getUTCDate() + '/' + meetingDate.getUTCFullYear() + " " 
+					+ (meetingDate.getUTCHours() - 5) % 24 + ":" + meetingDate.getUTCMinutes() + ":" + meetingDate.getUTCSeconds()
+				});
+			}
 			break;
             // Just add any case commands if you want to..
          }
